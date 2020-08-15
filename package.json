@@ -1,0 +1,22 @@
+{
+  "name": "chat-application",
+  "version": "1.0.0",
+  "description": "This application is developed using Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js -e css,js,hbs"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express"
+  ],
+  "author": "Sitharaman Deepak Guptha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
