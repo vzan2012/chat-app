@@ -16,7 +16,10 @@ app.use(express.static(publicDirectoyPath));
 io.on("connection", (socket) => {
   console.log("New WebSocket Connection");
 
+  socket.broadcast.emit("message", "New User has joined");
   socket.on("sendMessage", (data) => io.emit("message", data));
+
+  socket.on("disconnect", () => io.emit("message", "A User has left"));
 });
 
 server.listen(port, () => console.log(`App running on PORT ${port}`));
