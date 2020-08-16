@@ -19,6 +19,13 @@ io.on("connection", (socket) => {
   socket.broadcast.emit("message", "New User has joined");
   socket.on("sendMessage", (data) => io.emit("message", data));
 
+  socket.on("sendLocation", (position) =>
+    io.emit(
+      "message",
+      `https://www.google.com/maps?q=${position.latitude},${position.longitude}`
+    )
+  );
+
   socket.on("disconnect", () => io.emit("message", "A User has left"));
 });
 
