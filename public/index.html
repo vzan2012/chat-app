@@ -7,7 +7,7 @@
   </head>
   <body>
     <h3>Chats</h3>
-    <!-- <button id="increment">+1</button> -->
+    <div id="messages"></div>
     <form action="" id="message-form">
       <input type="text" placeholder="Message" name="message" id="txtMessage" />
       <button id="send">Send</button>
@@ -15,6 +15,17 @@
     <br />
 
     <button id="send-location">Send Location</button>
+
+    <script id="message-template" type="text/html">
+      <div>
+        <p>{{message}}</p>
+      </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js"></script>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/chat.js"></script>
   </body>
