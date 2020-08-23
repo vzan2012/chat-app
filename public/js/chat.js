@@ -30,6 +30,12 @@ socket.on("locationMessage", (message) => {
   $messages.insertAdjacentHTML("beforeend", html);
 });
 
+// $messageFormButton.setAttribute("disabled", "disabled");
+
+// $messageFormInput.addEventListener("change", (e) => {
+//   if (e.target.value) $messageFormButton.removeAttribute("disabled");
+// });
+
 $messageForm.addEventListener("submit", (e) => {
   e.preventDefault();
   $messageFormButton.setAttribute("disabled", "disabled");
