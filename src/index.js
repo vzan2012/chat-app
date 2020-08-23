@@ -17,6 +17,8 @@ app.use(express.static(publicDirectoyPath));
 io.on("connection", (socket) => {
   console.log("New WebSocket Connection");
 
+  socket.emit("message", "Welcome !!!");
+
   socket.broadcast.emit("message", "New User has joined");
   socket.on("sendMessage", (data, callback) => {
     const filter = new Filter();
@@ -26,8 +28,12 @@ io.on("connection", (socket) => {
   });
 
   socket.on("sendLocation", (position, callback) => {
+    // io.emit(
+    //   "message",
+    //   `https://www.google.com/maps?q=${position.latitude},${position.longitude}`
+    // );
     io.emit(
-      "message",
+      "locationMessage",
       `https://www.google.com/maps?q=${position.latitude},${position.longitude}`
     );
     callback();
