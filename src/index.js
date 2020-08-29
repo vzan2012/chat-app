@@ -22,13 +22,22 @@ app.use(express.static(publicDirectoyPath));
 io.on("connection", (socket) => {
   console.log("New WebSocket Connection");
 
-  socket.emit("message", generateMessage("Welcome !!!"));
-  socket.broadcast.emit("message", generateMessage("New User has joined"));
+  socket.on("join", ({ username, room }) => {
+    socket.join(room);
+
+    socket.emit("message", generateMessage("Welcome !!!"));
+    socket.broadcast
+      .to(room)
+      .emit("message", generateMessage(`${username} has joined`));
+
+    // socket.emit, io.emit, socket.broadcast.emit,
+    // io.to.emit, socket.broadcast.to.emit
+  });
 
   socket.on("sendMessage", (data, callback) => {
     const filter = new Filter();
     if (filter.isProfane(data)) return callback("Profanity is not allowed");
-    io.emit("message", generateMessage(data));
+    io.to("public").emit("message", generateMessage(data));
     callback("Delivered !!!");
   });
 
