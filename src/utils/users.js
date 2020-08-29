@@ -38,9 +38,10 @@ const removeUser = (id) => {
   if (index !== -1) return users.splice(index, 1)[0];
 };
 
-addUser({ id: 786, username: "Sai ", room: "public " });
-console.log(users);
+// Get User
+const getUser = (id) => users.find((user) => user.id === id);
 
-const removedUser = removeUser(786);
-console.log(removedUser);
-console.log(users);
+// Get Users in room
+const getUsersInRoom = (room) => users.filter((user) => user.room === room);
+
+module.exports = { addUser, removeUser, getUser, getUsersInRoom };
