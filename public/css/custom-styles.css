@@ -1,0 +1,7 @@
+.compose button {
+  display: flex;
+}
+
+.compose button i {
+  margin-right: 10px;
+}

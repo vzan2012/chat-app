@@ -6,7 +6,14 @@
     <title>Chat Application</title>
 
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/styles.min.css" />
+    <link rel="stylesheet" href="./css/custom-styles.css" />
   </head>
   <body>
     <div class="chat">
@@ -24,14 +31,18 @@
               autocomplete="off"
               required
             />
-            <button id="send">Send</button>
+            <button id="send">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Send
+            </button>
           </form>
 
-          <button id="send-location">Send Location</button>
+          <button id="send-location">
+            <i class="fa fa-globe" aria-hidden="true"></i> Send Location
+          </button>
         </div>
       </div>
     </div>
-    <h3>Chats</h3>
+    <!-- <h3>Chats</h3> -->
 
     <script id="message-template" type="text/html">
       <div class="message">
