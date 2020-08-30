@@ -21,6 +21,8 @@
               placeholder="Message"
               name="message"
               id="txtMessage"
+              autocomplete="off"
+              required
             />
             <button id="send">Send</button>
           </form>
@@ -34,7 +36,7 @@
     <script id="message-template" type="text/html">
       <div class="message">
         <p>
-          <span class="message__name"> Username </span>
+          <span class="message__name"> {{username}} </span>
           <span class="message__meta"> {{createdAt}} </span>
         </p>
         <p>{{message}}</p>
@@ -44,7 +46,7 @@
     <script id="location-message-template" type="text/html">
       <div class="message">
         <p>
-          <span class="message__name">Username</span>
+          <span class="message__name"> {{username}} </span>
           <span class="message__meta"> {{createdAt}} </span>
         </p>
         <p><a href="{{url}}" target="_blank">My Current Location</a></p>
